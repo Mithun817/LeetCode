@@ -9,19 +9,51 @@
  * }
  */
 class Solution {
-    public ListNode reverse(ListNode current , int k)
+    // public ListNode reverse(ListNode current , int k)
+    // {
+    //     ListNode prev = null;
+    //     while(k-->0)
+    //     {
+    //         ListNode next = current.next;
+    //         current.next = prev;
+    //         prev = current;
+    //         current = next;
+    //     }
+    //     return prev;
+    // }
+    // public ListNode find(ListNode head , int k)
+    // {
+    //     ListNode temp = head;
+    //     while(k-->1 && temp!=null)
+    //     {
+    //         temp = temp.next;
+    //     }
+    //     return temp;
+    // }
+    // public int length(ListNode head)
+    // {
+    //     int n=0;
+    //     ListNode temp = head;
+    //     while(temp!=null)
+    //     {
+    //         temp = temp.next;
+    //         n++;
+    //     }
+    //     return n;
+    // }
+    public int length(ListNode head)
     {
-        ListNode prev = null;
-        while(k-->0)
+        ListNode temp = head;
+        int n=0;
+        while(temp!=null)
         {
-            ListNode next = current.next;
-            current.next = prev;
-            prev = current;
-            current = next;
+            temp = temp.next;
+            n++;
         }
-        return prev;
+        return n;
     }
-    public ListNode find(ListNode head , int k)
+
+    public ListNode find(ListNode head, int k)
     {
         ListNode temp = head;
         while(k-->1 && temp!=null)
@@ -30,33 +62,41 @@ class Solution {
         }
         return temp;
     }
-    public int length(ListNode head)
+
+    public void reverse(ListNode head , int k)
     {
-        int n=0;
-        ListNode temp = head;
-        while(temp!=null)
+        ListNode prev = null;
+        ListNode current = head;
+        while(k-->0 && current!=null)
         {
-            temp = temp.next;
-            n++;
+            ListNode next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
         }
-        return n;
     }
+
     public ListNode reverseKGroup(ListNode head, int k) {
         if(head == null || k==1) return head;
         int n = length(head);
         if(n<k) return head;
-        ListNode temp = head;
-        ListNode prevNode = null;
-        while(temp != null)
+
+        ListNode temp = head , prevNode = null;
+
+        while(temp!=null)
         {
             ListNode kth = find(temp , k);
             if(kth == null)
             {
-                if(prevNode != null) prevNode.next = temp;
+                if(prevNode != null)
+                {
+                    prevNode.next = temp;
+                }
                 break;
             }
             ListNode nextNode = kth.next;
             reverse(temp , k);
+
             if(temp == head)
             {
                 head = kth;
@@ -65,9 +105,58 @@ class Solution {
             {
                 prevNode.next = kth;
             }
+
             prevNode = temp;
             temp = nextNode;
         }
         return head;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // if(head == null || k==1) return head;
+        // int n = length(head);
+        // if(n<k) return head;
+        // ListNode temp = head;
+        // ListNode prevNode = null;
+        // while(temp != null)
+        // {
+        //     ListNode kth = find(temp , k);
+        //     if(kth == null)
+        //     {
+        //         if(prevNode != null) prevNode.next = temp;
+        //         break;
+        //     }
+        //     ListNode nextNode = kth.next;
+        //     reverse(temp , k);
+        //     if(temp == head)
+        //     {
+        //         head = kth;
+        //     }
+        //     else
+        //     {
+        //         prevNode.next = kth;
+        //     }
+        //     prevNode = temp;
+        //     temp = nextNode;
+        // }
+        // return head;
     }
 }
