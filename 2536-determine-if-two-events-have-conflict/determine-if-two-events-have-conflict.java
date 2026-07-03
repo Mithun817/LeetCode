@@ -9,7 +9,7 @@ class Solution {
         e2 = Integer.parseInt(str2.substring(3,5));
         double time1 = (double)((s1*100)+e1)/100;
         double time2 = (double)((s2*100)+e2)/100;
-        System.out.println(time1+" "+time2);
+        //System.out.println(time1+" "+time2);
 
         int ss1=0,ss2=0,ee1=0,ee2=0;
         String strr = event2[0] , strr2 = event2[1];
@@ -19,7 +19,7 @@ class Solution {
         ee2 = Integer.parseInt(strr2.substring(3,5));
         double timee1 = (double)((ss1*100)+ee1)/100;
         double timee2 = (double)((ss2*100)+ee2)/100;
-        System.out.println(timee1+" "+timee2);
+        //System.out.println(timee1+" "+timee2);
         
         if((time2 < timee1) || (time1 > timee2) ) return false;
         return true;
