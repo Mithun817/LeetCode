@@ -11,12 +11,12 @@ class Solution {
             if(min > diff)
             {
                 ans.clear();
-                if(!ans.contains(Arrays.asList(num1,num2))) ans.add(Arrays.asList(num1,num2));
+                ans.add(Arrays.asList(num1,num2));
                 min = diff;
             }
             else if(min == diff)
             {
-                if(!ans.contains(Arrays.asList(num1,num2))) ans.add(Arrays.asList(num1,num2));
+                ans.add(Arrays.asList(num1,num2));
             }
             i++;j++;
         }
