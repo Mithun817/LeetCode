@@ -20,12 +20,12 @@ class Solution {
     public void inorder(TreeNode root)
     {
         if(root == null) return;
-        else if(list.size() > 0 && list.get(list.size()-1) >= root.val)
-        {
-            //System.out.println("prev : "+prev +" val : "+root.val);
-            flag = false;
-            return;
-        }
+        // else if(list.size() > 0 && list.get(list.size()-1) >= root.val)
+        // {
+        //     //System.out.println("prev : "+prev +" val : "+root.val);
+        //     flag = false;
+        //     return;
+        // }
 
         //System.out.println("prev : "+prev +" val : "+root.val);
 
