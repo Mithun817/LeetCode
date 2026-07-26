@@ -15,7 +15,7 @@
  */
 class Solution {
     int sum = 0;
-    StringBuilder str = new StringBuilder();
+    int temp = 0;
     public int sumNumbers(TreeNode root) {
         dfs(root);
         return sum;
@@ -25,13 +25,13 @@ class Solution {
     {
         if(root == null) return;
 
-        str.append(root.val);
+        temp = temp*10 + root.val;
 
         if(root.left == null && root.right == null)
         {
             //System.out.println(str);
-            sum += Integer.parseInt(str.toString());
-            str.deleteCharAt(str.length()-1);
+            sum += temp;
+            temp/=10;
             return;
         }
 
@@ -39,7 +39,7 @@ class Solution {
         //str.deleteCharAt(str.length()-1);
         //str.append(root.val);
         dfs(root.right);
-        str.deleteCharAt(str.length()-1);
+        temp/=10;
     }
 
 }
