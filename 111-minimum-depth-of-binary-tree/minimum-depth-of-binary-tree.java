@@ -24,6 +24,7 @@ class Solution {
     public void dfs(TreeNode root)
     {
         if(root==null) return;
+        if(size == 2) return;
         temp++;
         if(root.left==null && root.right==null)
         {
