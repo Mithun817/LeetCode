@@ -29,7 +29,7 @@ class Solution {
 
         if(root.left == null && root.right == null)
         {
-            System.out.println(str);
+            //System.out.println(str);
             sum += Integer.parseInt(str.toString());
             str.deleteCharAt(str.length()-1);
             return;
