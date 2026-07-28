@@ -24,7 +24,6 @@ class Solution {
         {
             if(root.val == target)
             {
-                root = null;
                 return null;
             }
         }
