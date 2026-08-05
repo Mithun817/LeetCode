@@ -24,7 +24,7 @@ class Solution {
                 prev = i;
             }
         }
-        System.out.println(primes);
+        //System.out.println(primes);
         for(int i=0 ; i<primes.size()-1 ; i++)
         {
             int n1 = primes.get(i);
