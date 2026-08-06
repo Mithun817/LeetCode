@@ -1,18 +1,12 @@
 class Solution {
     public int digitFrequencyScore(int n) {
-        if(n<10) return n; 
-        HashMap<Integer , Integer> map = new HashMap<>();
+        int ans = 0;
         while(n!=0)
         {
-            int rem = n%10;
-            map.put(rem , map.getOrDefault(rem , 0) + 1);
+            ans+=n%10;
             n/=10;
         }
-        int ans = 0;
-        for(int key : map.keySet())
-        {
-            ans += key*map.get(key);
-        }
+
         return ans;
     }
 }
